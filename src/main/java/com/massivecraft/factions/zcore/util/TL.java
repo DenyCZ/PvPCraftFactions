@@ -187,7 +187,7 @@ public enum TL {
     COMMAND_FWARP_INVALID_PASSWORD("&4Invalid password!"),
     
     COMMAND_FLY_DESCRIPTION("Used to fly"),
-    COMMAND_FLY_ERROR_TERRITORY("You must be in your own territory!"),
+    COMMAND_FLY_ERROR_TERRITORY("You must be in your own territory or in SafeZone!"),
     COMMAND_FLY_ENABLED("You are now flying"),
     COMMAND_FLY_DISABLED("You are no longer flying"),
 

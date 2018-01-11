@@ -1,5 +1,8 @@
 package com.massivecraft.factions.cmd;
 
+import com.massivecraft.factions.Board;
+import com.massivecraft.factions.FLocation;
+import com.massivecraft.factions.Faction;
 import com.massivecraft.factions.struct.Permission;
 import com.massivecraft.factions.zcore.util.TL;
 
@@ -21,7 +24,9 @@ public class CmdFly extends FCommand {
 
 	@Override
 	public void perform() {
-		if(fme.isInOwnTerritory()) {
+		Faction faction = Board.getInstance().getFactionAt(new FLocation(me.getLocation()));
+
+		if(fme.isInOwnTerritory() || faction.isSafeZone()) {
 			if(!fme.isFlying()) {
 				fme.getPlayer().setAllowFlight(true);
 				fme.getPlayer().setFlying(true);

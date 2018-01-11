@@ -157,6 +157,7 @@ public class FactionsPlayerListener implements Listener {
             return;
         }
 
+
         // Did we change coord?
         FLocation from = me.getLastStoodAt();
         FLocation to = new FLocation(event.getTo());
@@ -175,8 +176,12 @@ public class FactionsPlayerListener implements Listener {
         boolean changedFaction = (factionFrom != factionTo);
 
         if(changedFaction && me.isFlying()) {
-        	me.getPlayer().setFlying(false);
-        	me.getPlayer().setAllowFlight(false);
+            if(!factionTo.isSafeZone()) {
+                if(!(factionTo == me.getFaction())) {
+                    me.getPlayer().setFlying(false);
+                    me.getPlayer().setAllowFlight(false);
+                }
+            }
         }
         
         if (me.isMapAutoUpdating()) {

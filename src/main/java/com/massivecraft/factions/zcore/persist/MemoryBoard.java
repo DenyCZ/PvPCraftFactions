@@ -291,44 +291,7 @@ public abstract class MemoryBoard extends Board {
                 }
             }
 
-            if(dz == 4) {
-                row.append("               "+ asciiCompass.get(0));
-            }
-            if(dz == 5) {
-                row.append("               "+ asciiCompass.get(1));
-            }
-            if(dz == 6) {
-                row.append("               "+ asciiCompass.get(2));
-            }
-
-
-            if(dz == 8) {
-                row.append("          " + ChatColor.AQUA + "█ You");
-            }
-            if(dz == 9) {
-                row.append("          " + ChatColor.RED + "█ WarZone");
-            }
-            if(dz == 10) {
-                row.append("          " + ChatColor.GOLD + "█ SafeZone");
-            }
-            if(dz == 11) {
-                row.append("          " + ChatColor.GRAY + "█ Wilderness");
-            }
-            if(dz == 12) {
-                row.append("          " + ChatColor.YELLOW + "█ KoTH");
-            }
-            if(dz == 13) {
-                row.append("          " + ChatColor.LIGHT_PURPLE + "█ Ally");
-            }
-            if(dz == 14) {
-                row.append("          " + ChatColor.DARK_PURPLE + "█ Truce");
-            }
-            if(dz == 15) {
-                row.append("          " + ChatColor.WHITE + "█ Neutral");
-            }
-            if(dz == 16) {
-                row.append("          " + ChatColor.RED + "█ Enemy");
-            }
+            row.append(getMapLine(dz, asciiCompass));
 
             ret.add(row.toString());
         }
@@ -345,5 +308,39 @@ public abstract class MemoryBoard extends Board {
         return ret;
     }
 
+    private String getMapLine(int dz, ArrayList<String> compass) {
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("          ");
+
+        switch(dz) {
+            case 4:
+                return "               "+ compass.get(0);
+            case 5:
+                return "               "+ compass.get(1);
+            case 6:
+                return "               "+ compass.get(2);
+            case 8:
+                sb.append(ChatColor.AQUA + "█ You"); break;
+            case 9:
+                sb.append(ChatColor.RED + "█ WarZone"); break;
+            case 10:
+                sb.append(ChatColor.GOLD + "█ SafeZone"); break;
+            case 11:
+                sb.append(ChatColor.GRAY + "█ Wilderness"); break;
+            case 12:
+                sb.append( ChatColor.YELLOW + "█ KoTH"); break;
+            case 13:
+                sb.append(ChatColor.LIGHT_PURPLE + "█ Ally"); break;
+            case 14:
+                sb.append(ChatColor.DARK_PURPLE + "█ Truce"); break;
+            case 15:
+                sb.append(ChatColor.WHITE + "█ Neutral"); break;
+            case 16:
+                sb.append(ChatColor.RED + "█ Enemy"); break;
+        }
+
+        return sb.toString();
+    }
     public abstract void convertFrom(MemoryBoard old);
 }
