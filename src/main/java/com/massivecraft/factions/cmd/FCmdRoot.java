@@ -68,7 +68,6 @@ public class FCmdRoot extends FCommand {
     public CmdModifyPower cmdModifyPower = new CmdModifyPower();
     public CmdLogins cmdLogins = new CmdLogins();
     public CmdClaimLine cmdClaimLine = new CmdClaimLine();
-    public CmdTop cmdTop = new CmdTop();
     public CmdAHome cmdAHome = new CmdAHome();
     public CmdPerm cmdPerm = new CmdPerm();
     public CmdPromote cmdPromote = new CmdPromote();
@@ -158,7 +157,6 @@ public class FCmdRoot extends FCommand {
         this.addSubCommand(this.cmdModifyPower);
         this.addSubCommand(this.cmdLogins);
         this.addSubCommand(this.cmdClaimLine);
-        this.addSubCommand(this.cmdTop);
         this.addSubCommand(this.cmdAHome);
         this.addSubCommand(this.cmdPerm);
         this.addSubCommand(this.cmdPromote);
